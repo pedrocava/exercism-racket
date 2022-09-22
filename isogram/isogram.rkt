@@ -10,4 +10,8 @@
      (reduce-fun (rest letters) (append acc (list (first letters)))))))
 
 (define (isogram? s)
-  (reduce-fun (string->list (string-downcase s)) (list)))
+  (reduce-fun 
+    (string->list 
+      (string-downcase
+        (string-replace s #rx"\\-| " "")))
+  (list)))
